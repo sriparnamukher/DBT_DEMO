@@ -10,8 +10,8 @@ HOUR(TO_TIMESTAMP(STARTED_AT)) AS HOUR_STARTED_AT,
 
 {{get_day_type('STARTED_AT')}} AS DAY_TYPE
 
-from {{ source('demo', 'bike') }}
-where STARTED_AT != 'started_at'
+from {{ ref('stg_bike') }}
+-- where STARTED_AT != 'started_at'
 )
 
 select *
